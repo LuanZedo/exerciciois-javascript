@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <a id="meuLink" href="https://www.google.com">Google</a>
+    <button onclick="mostrarHref()">Mostrar URL</button>
+    <p id="resultado"></p>
+
+    <script>
+        function mostrarHref() {
+            let link = document.querySelector("a")
+            let resultado = document.getElementById("resultado")
+            resultado.innerHTML= link.href
+        }
+    </script>
+</body>
+</html>
