@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <style>
+        #caixa {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            text-align: center;
+            line-height: 200px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="caixa">Passe o mouse</div>
+    <div id="alerta"></div>
+    <p id="coords"></p>
+
+    <script>
+        let caixa = document.getElementById("caixa");
+        let alerta = document.getElementById("alerta");
+        let cordenada = document.getElementById("coords");
+
+        function mudarCor(event) {
+            if (event.type == "click") {
+                caixa.style.backgroundColor = "blue"
+            }
+            else if (event.type == "dblclick") {
+                caixa.style.backgroundColor = "green"
+            }
+            else if (event.type == "mousedown") {
+                caixa.style.backgroundColor = "red"
+            }
+            else if (event.type == "mouseup") {
+                caixa.style.backgroundColor = "purple"
+            }
+        };
+        caixa.addEventListener("click", mudarCor);
+        caixa.addEventListener("dblclick", mudarCor);
+        caixa.addEventListener("mousedown", mudarCor);
+        caixa.addEventListener("mouseup", mudarCor);
+
+        caixa.addEventListener("mousemove", function (event) {
+            cordenada.innerHTML = `${event.clientX}, ${event.clientY}`
+        });
+
+        caixa.addEventListener("mouseenter", () => {
+            alerta.innerHTML = "Entrou na área!"
+        });
+        caixa.addEventListener("mouseleave", () => {
+            alerta.innerHTML = "Saiu da área!"
+        });
+    </script>
+</body>
+</html>

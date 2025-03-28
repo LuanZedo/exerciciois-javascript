@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome">
+        <span id="erroNome" style="color: red;"></span>
+        <br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="text" id="email">
+        <span id="erroEmail" style="color: red;"></span>
+        <br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+        const nome = document.getElementById("nome");
+        let erroNome = document.getElementById("erroNome");
+        const email = document.getElementById("email");
+        let erroEmail = document.getElementById("erroEmail");
+
+        nome.addEventListener("keyup", () => {
+            if (nome.value.length <= 3) {
+                erroNome.innerHTML = 'precisa de mais que 3 caracteres'
+            }
+            else {
+                erroNome.innerHTML = ''
+            }
+        });
+
+        email.addEventListener("blur", () => {
+            if (!email.value.includes("@")) {
+            erroEmail.innerHTML = 'falta "@"'
+            }
+            else {
+                erroEmail.innerHTML = ''
+            }
+        });   
+    </script>
+</body>
+</html>

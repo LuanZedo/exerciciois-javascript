@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <label for="campo">Digite algo:</label>
+    <input type="text" id="campo">
+    <p id="tecla"></p>
+
+    <script>
+        const campo = document.getElementById("campo");
+
+        campo.addEventListener("keydown", function (event) {
+            document.getElementById("tecla").innerHTML = event.key
+        });
+    </script>
+</body>
+</html>
