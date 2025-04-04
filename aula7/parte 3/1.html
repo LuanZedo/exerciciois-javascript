@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1: </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Armazenando Dados Simples</h2>
+    <input type="text" id="nome" placeholder="Digite seu nome">
+    <input type="number" id="idade" placeholder="Digite sua idade">
+    <button id="salvarSimples">Salvar</button>
+    <button id="carregarSimples">Carregar</button>
+    <div class="output" id="resultadoSimples"></div>
+
+    <script>
+        const nomeInput = document.getElementById('nome');
+        const idadeInput = document.getElementById('idade');
+        const salvarBtn = document.getElementById('salvarSimples');
+        const carregarBtn = document.getElementById('carregarSimples');
+        const resultadoDiv = document.getElementById('resultadoSimples');
+
+        salvarBtn.addEventListener("click", () => {
+            let usuario = {
+                nome: nomeInput.value,
+                idade: idadeInput.value
+            };
+            localStorage.setItem("usuario", JSON.stringify(usuario));
+
+            nomeInput.value = "";
+            idadeInput.value = "";
+        });
+        carregarBtn.addEventListener("click", () => {
+            let usuario = JSON.parse(localStorage.getItem("usuario"));
+            if (usuario) {
+                resultadoDiv.innerHTML = `Nome: ${usuario.nome}, Idade: ${usuario.idade}`;
+            }
+            else {
+                resultadoDiv.innerHTML = "Nenhum dado encontrado.";
+            };
+        });
+    </script>
+
+</body>
+</html>

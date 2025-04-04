@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <button id="reset">Reset</button>
+
+    <script>
+        let reset = document.getElementById("reset");
+        let itens = document.querySelectorAll("li");
+
+        reset.addEventListener("click", () => {
+            itens.forEach(item => {
+            item.style.textDecoration = "none";
+            item.style.fontWeight = "normal";
+            });
+        });
+        
+        itens.forEach(item => {
+            item.addEventListener("click", () => {
+                if (item.previousElementSibling != null) {
+                    item.previousElementSibling.style.textDecoration = "underline";
+                };
+                if (item.nextElementSibling != null) {
+                    item.nextElementSibling.style.fontWeight = "bold";
+                };
+            });
+        });
+    </script>
+</body>
+</html>

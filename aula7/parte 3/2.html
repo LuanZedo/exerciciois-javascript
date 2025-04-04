@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Armazenando um Objeto</h2>
+    <input type="text" id="nomeObj" placeholder="Nome">
+    <input type="email" id="emailObj" placeholder="Email">
+    <input type="tel" id="telefoneObj" placeholder="Telefone">
+    <button id="salvarObjeto">Salvar Contato</button>
+    <button id="carregarObjeto">Exibir Contato</button>
+    <div class="output" id="resultadoObjeto"></div>
+
+    <script>
+        const nome = document.getElementById("nomeObj");
+        const email = document.getElementById("emailObj");
+        const telefone = document.getElementById("telefoneObj");
+        const salvarObjeto = document.getElementById("salvarObjeto");
+        const carregarObjeto = document.getElementById("carregarObjeto");
+        const resultadoObjeto = document.getElementById("resultadoObjeto");
+
+        salvarObjeto.addEventListener("click", () => {
+            let contato = {
+                nome: nome.value,
+                email: email.value,
+                telefone: telefone.value
+            };
+            localStorage.setItem("contato", JSON.stringify(contato));
+            nome.value = "";
+            email.value = "";
+            telefone.value = "";
+        });
+
+        carregarObjeto.addEventListener("click", () => {
+            let contato = JSON.parse(localStorage.getItem("contato"));
+            if (contato) {
+                resultadoObjeto.innerHTML = `Nome: ${contato.nome}<br>Email: ${contato.email}<br>Telefone: ${contato.telefone}`;
+            };
+        });
+    </script>
+</body>
+</html>
