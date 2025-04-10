@@ -61,7 +61,7 @@ function excluirContato(contatoExcluir) {
       contato.email !== contatoExcluir.email
   );
 
-  localStorage.setItem("contatos", JSON.stringify(contatos)); // Atualizar o localStorage
+  localStorage.setItem("contatos", JSON.stringify(contatos));
 };
 
 
