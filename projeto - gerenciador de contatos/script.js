@@ -3,7 +3,7 @@ const inputTelefone = document.getElementById("telefone");
 const inputEmail = document.getElementById("email");
 const btnAddContato = document.getElementById("addContatoBtn");
 let listaContatos = document.getElementById("listaContatos");
-const inputPesquisa = document.getElementById("pesquisa");
+const pesquisa = document.getElementById("pesquisa");
 
 btnAddContato.addEventListener("click", () => {
   let contato = {
@@ -28,11 +28,11 @@ btnAddContato.addEventListener("click", () => {
   };
 });
 
-inputPesquisa.addEventListener("input", () => {
+pesquisa.addEventListener("input", () => {
   let contatos = JSON.parse(localStorage.getItem("contatos")) || [];
   
   let contatosFiltrados = contatos.filter((contato) =>
-    contato.nome.includes(inputPesquisa.value)
+    contato.nome.includes(pesquisa.value)
   );
 
   listaContatos.innerHTML = "";
